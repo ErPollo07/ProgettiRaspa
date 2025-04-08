@@ -17,6 +17,7 @@ public class Main {
     boolean isGpl, isVip;
     String _is;
 
+    // TEST PURPOSE
     gestore.add(new Car(120, 15000, false, false)); // Indoor (non gpl, non vip)
     gestore.add(new Car(140, 18000, false, true));  // Indoor (vip)
     gestore.add(new Car(160, 22000, false, true));  // Indoor (vip, ma forse swap se meglio)
