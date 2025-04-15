@@ -1,3 +1,5 @@
+package main;
+
 import java.util.ArrayList;
 
 public class Customer {
@@ -24,6 +26,27 @@ public class Customer {
 
   public void addSale(Sale s) {
     sales.add(s);
+  }
+
+  public void checkOut(Sale sale) {
+    for (Animal animal : sale.getAnimals()) {
+      Aquarium bestFit = null;
+
+      // Trova l'acquario compatibile
+      for (Aquarium a : aquariums) {
+        if (a.addAnimal(animal)) {
+          bestFit = a;
+          break;
+        }
+      }
+
+      // Se nessun acquario è adatto, creane uno nuovo
+      if (bestFit == null) {
+        bestFit = new Aquarium(animal.getType()); // Crea nuovo acquario con il tipo d'acqua dell'animale
+        bestFit.addAnimal(animal);                      // Aggiungi l'animale
+        addAquarium(bestFit);                           // Aggiungi l'acquario al cliente
+      }
+    }
   }
 
   // =====================

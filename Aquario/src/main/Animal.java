@@ -1,3 +1,5 @@
+package main;
+
 public class Animal {
     private String species;
     private WaterType type;
